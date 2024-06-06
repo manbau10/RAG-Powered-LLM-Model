@@ -14,9 +14,10 @@ import tempfile
 # Load environment variables
 load_dotenv()
 
-# Load the GROQ and OpenAI API keys
-groq_api_key = os.getenv('GROQ_API_KEY')
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+# Load the GROQ and Google API keys from Streamlit secrets
+groq_api_key = st.secrets["GROQ_API_KEY"]
+google_api_key = st.secrets["GOOGLE_API_KEY"]
+os.environ["GOOGLE_API_KEY"] = google_api_key
 
 # Set Streamlit application title
 st.title("RAG-Powered LLM Model For Document Q&A")
